@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import BaseLayout from './BaseLayout.astro';
 import type { Post } from '../utils/posts';
-import { formatDate } from '../utils/posts';
+import { formatDate, sitePath } from '../utils/posts';
 
 interface Props { post: Post; headings: { depth: number; slug: string; text: string }[]; }
 const { post, headings } = Astro.props;
@@ -15,7 +15,7 @@ const { post, headings } = Astro.props;
       <p class="mt-8 text-xl md:text-2xl text-[var(--muted)] max-w-3xl">{post.data.description}</p>
       <div class="mt-9 flex flex-wrap items-center gap-3 text-sm font-mono text-[var(--muted)]">
         <time>{formatDate(post.data.publishedAt)}</time><span>·</span><span>{post.data.readingTime ?? '6 MIN READ'}</span>
-        {post.data.tags.map((tag) => <a class="pill" href={`/tags/${tag}/`}>#{tag}</a>)}
+        {post.data.tags.map((tag) => <a class="pill" href={sitePath(`/tags/${tag}/`)}>#{tag}</a>)}
       </div>
       {post.data.repository && (
         <a

@@ -1,5 +1,6 @@
 ---
 import { SITE } from '../config';
+import { sitePath } from '../utils/posts';
 import '../styles/global.css';
 
 interface Props { title?: string; description?: string; image?: string; }
@@ -14,12 +15,12 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#f3f1e9" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href={sitePath('/favicon.svg')} type="image/svg+xml" />
     <link rel="canonical" href={canonical} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content={new URL(image, Astro.site ?? Astro.url)} />
+    <meta property="og:image" content={new URL(sitePath(image), Astro.site ?? Astro.url)} />
     <title>{pageTitle}</title>
     <script is:inline>
       const savedTheme = localStorage.getItem('theme');
@@ -30,18 +31,18 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
   <body>
     <header class="border-b border-[var(--line)] bg-[var(--paper)]/95 sticky top-0 z-50 backdrop-blur">
       <div class="container h-16 flex items-center justify-between gap-6">
-        <a class="font-black tracking-[-.04em] text-xl" href="/">{SITE.shortTitle}<span class="text-[var(--blue)]">/</span></a>
+        <a class="font-black tracking-[-.04em] text-xl" href={sitePath('/')}>{SITE.shortTitle}<span class="text-[var(--blue)]">/</span></a>
         <nav class="hidden md:flex items-center gap-6 text-sm font-semibold" aria-label="主导航">
-          {SITE.nav.map((item) => <a class="hover:underline underline-offset-4" href={item.href}>{item.label}</a>)}
+          {SITE.nav.map((item) => <a class="hover:underline underline-offset-4" href={sitePath(item.href)}>{item.label}</a>)}
         </nav>
         <div class="flex items-center gap-2">
-          <a href="/search/" class="border border-[var(--line)] px-3 py-1.5 text-sm font-semibold hover:bg-[var(--ink)] hover:text-[var(--paper)]">搜索</a>
+          <a href={sitePath('/search/')} class="border border-[var(--line)] px-3 py-1.5 text-sm font-semibold hover:bg-[var(--ink)] hover:text-[var(--paper)]">搜索</a>
           <button id="theme-toggle" class="w-9 h-9 border border-[var(--line)]" aria-label="切换深色模式">◐</button>
           <button id="menu-toggle" class="md:hidden w-9 h-9 border border-[var(--line)]" aria-label="打开菜单">☰</button>
         </div>
       </div>
       <nav id="mobile-menu" class="hidden md:hidden container py-4 border-t border-[var(--line)]" aria-label="移动端导航">
-        <div class="grid grid-cols-2 gap-3">{SITE.nav.map((item) => <a class="py-2 font-semibold" href={item.href}>{item.label}</a>)}</div>
+        <div class="grid grid-cols-2 gap-3">{SITE.nav.map((item) => <a class="py-2 font-semibold" href={sitePath(item.href)}>{item.label}</a>)}</div>
       </nav>
     </header>
     <main><slot /></main>
