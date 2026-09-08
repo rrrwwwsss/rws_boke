@@ -7,7 +7,7 @@
     "dev": "astro dev",
     "build": "astro build && pagefind --site dist",
     "build:deploy": "astro build --mode deployment && pagefind --site dist",
-    "build:pages": "astro build --mode deployment && pagefind --site dist",
+    "build:pages": "astro build --mode deployment && node scripts/prefix-pages-path.mjs && pagefind --site dist",
     "preview": "astro preview",
     "check": "astro check",
     "new": "node scripts/new-post.mjs"

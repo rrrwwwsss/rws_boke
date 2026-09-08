@@ -6,8 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig(() => {
   const isGitHubPages = process.env.PAGES_BUILD === 'true';
   return {
-    site: isGitHubPages ? 'https://rrrwwwsss.github.io' : 'https://example.com',
-    base: isGitHubPages ? '/rws_boke' : '/',
+    site: isGitHubPages ? 'https://rrrwwwsss.github.io/rws_boke/' : 'https://example.com',
     output: 'static',
     integrations: [mdx(), sitemap()],
     markdown: {

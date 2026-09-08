@@ -35,6 +35,7 @@ jobs:
         run: pnpm run build:pages
         env:
           PAGES_BUILD: 'true'
+          PUBLIC_BASE_PATH: '/rws_boke'
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
