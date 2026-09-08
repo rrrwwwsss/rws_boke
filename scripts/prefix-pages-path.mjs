@@ -1,7 +1,8 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises';
 import { extname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const outputDir = new URL('../dist/', import.meta.url);
+const outputDir = fileURLToPath(new URL('../dist/', import.meta.url));
 const textExtensions = new Set(['.html', '.css', '.js', '.xml']);
 
 async function prefixAssetPaths(directory) {
