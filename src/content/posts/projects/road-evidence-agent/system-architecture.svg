@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">公路违法非现场取证线索库智能查询系统总体架构</title>
+  <desc id="desc">系统由交互层、LangGraph 编排层、五个业务 Skill、三个原子 Tool 以及数据和模型服务组成。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#64748b"/></marker>
+    <filter id="shadow" x="-10%" y="-20%" width="120%" height="150%"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#18324d" flood-opacity=".10"/></filter>
+    <style>
+      .title{font:700 34px Inter,'Microsoft YaHei',sans-serif;fill:#18324d}.sub{font:400 17px Inter,'Microsoft YaHei',sans-serif;fill:#64748b;letter-spacing:.5px}.layer{font:700 18px Inter,'Microsoft YaHei',sans-serif}.box-title{font:700 18px Inter,'Microsoft YaHei',sans-serif;fill:#18324d;text-anchor:middle}.box-sub{font:400 14px Inter,'Microsoft YaHei',sans-serif;fill:#52677b;text-anchor:middle}.link{fill:none;stroke:#64748b;stroke-width:2;marker-end:url(#arrow)}.box{stroke-width:1.5;filter:url(#shadow)}
+    </style>
+  </defs>
+  <rect width="1600" height="900" fill="#f8fafc"/>
+  <text class="title" x="70" y="60">公路违法非现场取证线索库智能查询系统｜总体架构</text>
+  <text class="sub" x="70" y="94">Intent–Skill–Tool 三级路由 · LangGraph 状态编排 · Plan–Execute + 有限 ReAct</text>
+
+  <text class="layer" x="70" y="158" fill="#2563eb">交互层</text>
+  <rect class="box" x="190" y="125" width="1340" height="78" rx="14" fill="#eaf3ff" stroke="#93c5fd"/>
+  <text class="box-title" x="860" y="158">STREAMLIT 对话工作台</text><text class="box-sub" x="860" y="184">自然语言查询 · 图片上传 · 执行过程展开 · 多轮上下文</text>
+
+  <text class="layer" x="70" y="280" fill="#7c3aed">编排层</text>
+  <g fill="#f3eeff" stroke="#c4b5fd">
+    <rect class="box" x="190" y="238" width="235" height="82" rx="13"/><rect class="box" x="445" y="238" width="235" height="82" rx="13"/><rect class="box" x="700" y="238" width="235" height="82" rx="13"/><rect class="box" x="955" y="238" width="235" height="82" rx="13"/><rect class="box" x="1210" y="238" width="320" height="82" rx="13"/>
+  </g>
+  <text class="box-title" x="307" y="270">会话记忆</text><text class="box-sub" x="307" y="296">Checkpoint</text>
+  <text class="box-title" x="562" y="270">INTENT</text><text class="box-sub" x="562" y="296">意图识别 · 实体抽取</text>
+  <text class="box-title" x="817" y="270">PLANNER</text><text class="box-sub" x="817" y="296">目标拆解 · 依赖校验</text>
+  <text class="box-title" x="1072" y="270">EXECUTOR</text><text class="box-sub" x="1072" y="296">按依赖确定性执行</text>
+  <text class="box-title" x="1370" y="270">AGENT STATE</text><text class="box-sub" x="1370" y="296">计划 · 证据 · 结果 · 事件</text>
+
+  <text class="layer" x="70" y="422" fill="#0891b2">能力层</text>
+  <g fill="#e8fafc" stroke="#67e8f9">
+    <rect class="box" x="190" y="375" width="250" height="92" rx="13"/><rect class="box" x="462" y="375" width="250" height="92" rx="13"/><rect class="box" x="734" y="375" width="250" height="92" rx="13"/><rect class="box" x="1006" y="375" width="250" height="92" rx="13"/><rect class="box" x="1278" y="375" width="252" height="92" rx="13"/>
+  </g>
+  <text class="box-title" x="315" y="412">案件查询 Skill</text><text class="box-sub" x="315" y="440">统计 / 明细 / 分布</text>
+  <text class="box-title" x="587" y="412">知识检索 Skill</text><text class="box-sub" x="587" y="440">标准 / 法规 / 案例</text>
+  <text class="box-title" x="859" y="412">图片案例检索 Skill</text><text class="box-sub" x="859" y="440">特征提取 / 相似召回</text>
+  <text class="box-title" x="1131" y="412">图片研判 Skill</text><text class="box-sub" x="1131" y="440">证据化违法 / 养护判定</text>
+  <text class="box-title" x="1404" y="412">报告生成 Skill</text><text class="box-sub" x="1404" y="440">事实 + 证据 + 建议</text>
+
+  <text class="layer" x="70" y="575" fill="#d97706">工具层</text>
+  <g fill="#fff7e6" stroke="#fbbf24">
+    <rect class="box" x="190" y="523" width="420" height="96" rx="13"/><rect class="box" x="635" y="523" width="420" height="96" rx="13"/><rect class="box" x="1080" y="523" width="450" height="96" rx="13"/>
+  </g>
+  <text class="box-title" x="400" y="562">SQL TOOL</text><text class="box-sub" x="400" y="590">自然语言转只读 SQL · 有限修正</text>
+  <text class="box-title" x="845" y="562">RAG TOOL</text><text class="box-sub" x="845" y="590">元数据过滤 · 检索回退 · 来源引用</text>
+  <text class="box-title" x="1305" y="562">VISION TOOL</text><text class="box-sub" x="1305" y="590">图片特征提取 · 可见事实分析</text>
+
+  <text class="layer" x="70" y="739" fill="#059669">数据与模型</text>
+  <g fill="#eafbf3" stroke="#6ee7b7">
+    <rect class="box" x="190" y="682" width="420" height="104" rx="13"/><rect class="box" x="635" y="682" width="420" height="104" rx="13"/><rect class="box" x="1080" y="682" width="450" height="104" rx="13"/>
+  </g>
+  <text class="box-title" x="400" y="725">SQLite 案件数据库</text><text class="box-sub" x="400" y="755">案件事实与审核状态</text>
+  <text class="box-title" x="845" y="725">Dify / Chroma 知识库</text><text class="box-sub" x="845" y="755">判定标准与历史案例</text>
+  <text class="box-title" x="1305" y="725">大模型服务</text><text class="box-sub" x="1305" y="755">Qwen-VL · 对话 / 报告模型</text>
+
+  <path class="link" d="M860 203V222H562V238"/><path class="link" d="M680 279H700"/><path class="link" d="M935 279H955"/><path class="link" d="M1072 320V346H859V375"/>
+  <path class="link" d="M315 467V495H400V523"/><path class="link" d="M587 467V495H845V523"/><path class="link" d="M859 467V523"/><path class="link" d="M1131 467V495H1305V523"/><path class="link" d="M1404 467V495H845V523"/>
+  <path class="link" d="M400 619V682"/><path class="link" d="M845 619V682"/><path class="link" d="M1305 619V682"/>
+  <text class="sub" x="70" y="850">统一 ToolResult：结构化数据 · 证据来源 · 错误码 · 耗时 · 截断状态</text>
+</svg>

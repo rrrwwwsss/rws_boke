@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1050" viewBox="0 0 1600 1050">
+  <title>大模型微调与自动评测平台系统架构</title>
+  <desc>业务数据进入数据集管理模块，依次经过微调训练、模型服务和自动评测。评测达标后发布到公路违法行为识别系统，生产中的误报和漏报以困难样本形式回流数据集。</desc>
+  <defs>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L10,5 L0,10 Z" fill="#155eef"/></marker>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L10,5 L0,10 Z" fill="#f25f3a"/></marker>
+    <style>.cn{font-family:"Microsoft YaHei","PingFang SC",sans-serif}.mono{font-family:Consolas,monospace}.node{fill:#fff;stroke:#344054;stroke-width:2}.edge{fill:none;stroke:#155eef;stroke-width:4;marker-end:url(#arrow-blue)}.feedback{fill:none;stroke:#f25f3a;stroke-width:4;marker-end:url(#arrow-orange)}.edge-label{fill:#f7f5ee}.small{font-size:17px}.body{font-size:20px;fill:#475467}.title{font-size:29px;font-weight:700;fill:#101828}</style>
+  </defs>
+  <rect width="1600" height="1050" fill="#f7f5ee"/>
+  <g class="cn">
+    <text x="85" y="70" font-size="38" font-weight="800" fill="#101828">大模型微调与自动评测平台｜系统架构</text>
+    <text x="85" y="108" font-size="20" fill="#667085">数据、模型、评测与生产反馈形成可追踪的模型工程闭环</text>
+    <rect x="85" y="150" width="1430" height="120" fill="#101828"/>
+    <text x="120" y="190" class="small" fill="#aeb8ca">01 / BUSINESS DATA</text>
+    <text x="120" y="238" font-size="28" font-weight="700" fill="#fff">公路监控图片　·　历史违法案例　·　人工复核结果　·　误报与漏报样本</text>
+
+    <rect class="node" x="85" y="370" width="300" height="230"/>
+    <text x="115" y="412" class="small" fill="#155eef">02 / DATASET</text><text x="115" y="458" class="title">数据集管理</text>
+    <text x="115" y="505" class="body">图片导入与网页标注</text><text x="115" y="540" class="body">SFT / DPO 字段映射</text><text x="115" y="575" class="body">划分与格式转换</text>
+
+    <rect class="node" x="445" y="370" width="300" height="230"/>
+    <text x="475" y="412" class="small" fill="#155eef">03 / TRAIN</text><text x="475" y="458" class="title">微调任务</text>
+    <text x="475" y="505" class="body">LLaMA-Factory</text><text x="475" y="540" class="body">LoRA · SFT · DPO</text><text x="475" y="575" class="body">日志解析与 Loss 监控</text>
+
+    <rect class="node" x="805" y="370" width="300" height="230"/>
+    <text x="835" y="412" class="small" fill="#155eef">04 / SERVE</text><text x="835" y="458" class="title">模型服务</text>
+    <text x="835" y="505" class="body">基础模型 + Adapter</text><text x="835" y="540" class="body">OpenAI 兼容接口</text><text x="835" y="575" class="body">图文对话与健康检查</text>
+
+    <rect x="1165" y="370" width="300" height="230" fill="#155eef" stroke="#344054" stroke-width="2"/>
+    <text x="1195" y="412" class="small" fill="#dbe7ff">05 / EVALUATE</text><text x="1195" y="458" font-size="29" font-weight="700" fill="#fff">自动评测</text>
+    <text x="1195" y="505" font-size="20" fill="#fff">批量推理与结果解析</text><text x="1195" y="540" font-size="20" fill="#fff">Precision · Recall · F1</text><text x="1195" y="575" font-size="20" fill="#fff">错误样本回查</text>
+
+    <path class="edge" d="M235 270 V362"/><rect class="edge-label" x="254" y="297" width="92" height="29"/><text x="265" y="318" class="small" fill="#155eef">样本汇聚</text>
+    <path class="edge" d="M385 485 H437"/><rect class="edge-label" x="388" y="446" width="48" height="28"/><text x="389" y="466" font-size="15" fill="#155eef">训练集</text>
+    <path class="edge" d="M745 485 H797"/><rect class="edge-label" x="749" y="446" width="47" height="28"/><text x="751" y="466" font-size="15" fill="#155eef">Adapter</text>
+    <path class="edge" d="M1105 485 H1157"/><rect class="edge-label" x="1108" y="446" width="48" height="28"/><text x="1108" y="466" font-size="15" fill="#155eef">推理接口</text>
+
+    <path class="edge" d="M1315 600 V662"/>
+    <polygon points="1315,675 1405,735 1315,795 1225,735" fill="#fff" stroke="#155eef" stroke-width="3"/>
+    <text x="1315" y="728" text-anchor="middle" font-size="20" font-weight="700" fill="#101828">指标与人工</text><text x="1315" y="755" text-anchor="middle" font-size="20" font-weight="700" fill="#101828">复核达标？</text>
+
+    <rect x="620" y="835" width="845" height="145" fill="#e7eefc" stroke="#155eef" stroke-width="2"/>
+    <text x="655" y="878" class="small" fill="#155eef">06 / PRODUCTION</text><text x="655" y="925" font-size="30" font-weight="800" fill="#101828">公路违法行为识别系统</text>
+    <text x="655" y="958" font-size="19" fill="#475467">发布验证通过的 Adapter；生产线索继续接受人工复核。</text>
+    <path class="edge" d="M1315 795 V827"/><rect class="edge-label" x="1330" y="800" width="90" height="27"/><text x="1341" y="820" class="small" fill="#155eef">通过 · 发布</text>
+
+    <path class="feedback" d="M1225 735 H1135 V655 H235 V608"/><rect class="edge-label" x="735" y="635" width="250" height="31"/><text x="750" y="657" class="small" fill="#f25f3a">未通过：定位错误并补充样本</text>
+    <path class="feedback" d="M620 908 H48 V485 H77"/><rect class="edge-label" x="62" y="761" width="265" height="31"/><text x="76" y="783" class="small" fill="#f25f3a">线上误报 / 漏报困难样本回流</text>
+
+    <line x1="85" y1="1017" x2="135" y2="1017" stroke="#155eef" stroke-width="4" marker-end="url(#arrow-blue)"/><text x="150" y="1024" class="small" fill="#475467">主流程</text>
+    <line x1="265" y1="1017" x2="315" y2="1017" stroke="#f25f3a" stroke-width="4" marker-end="url(#arrow-orange)"/><text x="330" y="1024" class="small" fill="#475467">反馈回流</text>
+    <text x="1515" y="1024" text-anchor="end" class="mono" font-size="17" fill="#667085">Vue 3 / FastAPI / SQLite / WebSocket / LLaMA-Factory / scikit-learn</text>
+  </g>
+</svg>

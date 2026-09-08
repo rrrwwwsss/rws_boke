@@ -1,0 +1,39 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import { CATEGORIES } from '../config';
+import { visiblePosts } from '../utils/posts';
+const posts = visiblePosts(await getCollection('posts'));
+const featured = posts.filter((post) => post.data.featured).slice(0, 2);
+const latest = posts.slice(0, 4);
+---
+<BaseLayout>
+  <section class="container pt-16 md:pt-24 pb-20">
+    <div class="eyebrow flex items-center gap-3"><span class="w-2.5 h-2.5 bg-[var(--signal)] border border-black rounded-full"></span> AI APPLICATION ENGINEER · GIS BACKGROUND</div>
+    <h1 class="display mt-8">BUILD.<br/><span class="text-[var(--blue)]">TEST.</span> WRITE.</h1>
+    <p class="eyebrow mt-10 border-t border-[var(--line)] pt-7">ISSUE 01 · 2026</p>
+  </section>
+
+  <section class="border-y border-[var(--line)] bg-[var(--ink)] text-[var(--paper)] overflow-hidden">
+    <div class="py-3 whitespace-nowrap font-mono text-sm tracking-widest animate-[ticker_24s_linear_infinite]">LANGGRAPH · RAG · MULTIMODAL · VLLM · FASTAPI · GIS · DEPLOYMENT · EVALUATION · LANGGRAPH · RAG · MULTIMODAL · VLLM · FASTAPI · GIS · DEPLOYMENT ·</div>
+  </section>
+
+  <section class="container py-20 md:py-28">
+    <div class="flex items-end justify-between gap-6 mb-10"><div><p class="eyebrow">SELECTED FIELD NOTES</p><h2 class="section-title mt-3">精选文章</h2></div><a href="/articles/" class="hidden md:block font-mono text-sm underline underline-offset-4">查看全部 →</a></div>
+    <div class="grid lg:grid-cols-2 gap-6">{featured.map((post, i) => <PostCard post={post} index={i + 1} large />)}</div>
+  </section>
+
+  <section class="container pb-24">
+    <div class="rule py-8 flex flex-col md:flex-row justify-between gap-3"><h2 class="text-2xl font-bold tracking-tight">按写作类型阅读</h2><p class="text-[var(--muted)]">教程教你做，原理解释为什么，复盘记录哪里会出错。</p></div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 border-l border-t border-[var(--line)]">
+      {CATEGORIES.map((category) => <a href={`/categories/${category.slug}/`} class="group min-h-56 p-6 border-r border-b border-[var(--line)] hover:bg-[var(--ink)] hover:text-[var(--paper)] transition-colors"><span class="font-mono text-xs text-[var(--muted)]">/{category.code}</span><h3 class="text-3xl font-bold tracking-tight mt-8">{category.name}</h3><p class="mt-3 text-[var(--muted)] group-hover:text-[#bcbfb3]">{category.description}</p><span class="inline-block mt-7 text-2xl group-hover:translate-x-2 transition-transform">→</span></a>)}
+    </div>
+  </section>
+
+  <section class="bg-[var(--panel)] border-y border-[var(--line)]">
+    <div class="container py-20"><div class="flex items-end justify-between mb-9"><div><p class="eyebrow">LATEST</p><h2 class="section-title mt-2">最近更新</h2></div></div><div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">{latest.map((post, i) => <PostCard post={post} index={i + 1} />)}</div></div>
+  </section>
+
+  <style>@keyframes ticker { to { transform: translateX(-50%); } }</style>
+</BaseLayout>

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1180" viewBox="0 0 1500 1180" role="img" aria-labelledby="title desc">
+  <title id="title">破坏路产路权违法行为识别系统整体架构</title>
+  <desc id="desc">独立切片程序通过图片接口向识别服务提供任务，六类违法行为由Qwen-VL识别，再经过连续帧、许可和去重校验，形成证据与结构化线索并进入人工复核和业务数据库。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8fbff"/><stop offset="1" stop-color="#f4f7fb"/></linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e8f2ff"/><stop offset="1" stop-color="#c9ddfa"/></linearGradient>
+    <linearGradient id="orange" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff4dc"/><stop offset="1" stop-color="#ffd995"/></linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e8f8ef"/><stop offset="1" stop-color="#bfe5ce"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#213653" flood-opacity=".12"/></filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto"><path d="M0 0L12 6L0 12Z" fill="#55749e"/></marker>
+    <style>
+      .t{font-family:"Microsoft YaHei","Noto Sans SC",sans-serif;fill:#17263a}.h{font-size:42px;font-weight:700}.stage{font-size:25px;font-weight:700;fill:#31577f}.main{font-size:29px;font-weight:700}.sub{font-size:21px;fill:#52657a}.task{font-size:23px;font-weight:650}.line{fill:none;stroke:#55749e;stroke-width:4;marker-end:url(#arrow)}.dash{fill:none;stroke:#a8b8ca;stroke-width:2;stroke-dasharray:9 9}.box{stroke:#7e9abb;stroke-width:2}.pill{rx:24;filter:url(#shadow)}
+    </style>
+  </defs>
+  <rect width="1500" height="1180" fill="url(#bg)"/>
+  <text class="t h" x="750" y="65" text-anchor="middle">破坏路产路权违法行为识别系统整体架构</text>
+
+  <text class="t stage" x="52" y="120">01  上游数据准备</text>
+  <rect class="dash" x="38" y="138" width="1424" height="160" rx="30"/>
+  <rect class="box pill" x="80" y="177" width="310" height="82" fill="url(#blue)"/><text class="t main" x="235" y="228" text-anchor="middle">图像平台 / 摄像头</text>
+  <path class="line" d="M390 218H500"/>
+  <rect class="box pill" x="520" y="160" width="390" height="115" fill="url(#blue)"/><text class="t main" x="715" y="208" text-anchor="middle">独立切片程序</text><text class="t sub" x="715" y="243" text-anchor="middle">取流 · 截帧 · 切片 · 任务登记</text>
+  <path class="line" d="M910 218H1020"/>
+  <rect class="box pill" x="1040" y="177" width="370" height="82" fill="url(#blue)"/><text class="t main" x="1225" y="211" text-anchor="middle">图片任务接口</text><text class="t sub" x="1225" y="241" text-anchor="middle">/images</text>
+
+  <path class="line" d="M750 298V354"/>
+  <text class="t stage" x="52" y="360">02  六类业务任务与模型识别</text>
+  <rect class="dash" x="38" y="378" width="1424" height="360" rx="30"/>
+  <rect class="box pill" x="555" y="415" width="390" height="112" fill="url(#blue)"/><text class="t main" x="750" y="462" text-anchor="middle">Qwen-VL 多模态模型</text><text class="t sub" x="750" y="497" text-anchor="middle">任务提示词 · 语义判断 · 目标框定位</text>
+
+  <rect class="box pill" x="75" y="438" width="360" height="82" fill="url(#orange)"/><text class="t task" x="255" y="470" text-anchor="middle">擅自占用、挖掘公路</text><text class="t sub" x="255" y="500" text-anchor="middle">施工活动与道路位置</text>
+  <rect class="box pill" x="75" y="548" width="360" height="82" fill="url(#orange)"/><text class="t task" x="255" y="580" text-anchor="middle">附属设施悬挂物品</text><text class="t sub" x="255" y="610" text-anchor="middle">设施归属与悬挂关系</text>
+  <rect class="box pill" x="75" y="658" width="360" height="60" fill="url(#orange)"/><text class="t task" x="255" y="697" text-anchor="middle">设置非公路标志</text>
+
+  <rect class="box pill" x="1065" y="438" width="360" height="82" fill="url(#orange)"/><text class="t task" x="1245" y="470" text-anchor="middle">擅自移动或破坏井盖</text><text class="t sub" x="1245" y="500" text-anchor="middle">缺失、位移与破损状态</text>
+  <rect class="box pill" x="1065" y="548" width="360" height="82" fill="url(#orange)"/><text class="t task" x="1245" y="580" text-anchor="middle">公路范围内堆放物品</text><text class="t sub" x="1245" y="610" text-anchor="middle">种类、位置与持续时间</text>
+  <rect class="box pill" x="1065" y="658" width="360" height="60" fill="url(#orange)"/><text class="t task" x="1245" y="697" text-anchor="middle">公路两侧摆摊设点</text>
+
+  <path d="M435 479H535" stroke="#55749e" stroke-width="3" fill="none" marker-end="url(#arrow)"/><path d="M435 589H535" stroke="#55749e" stroke-width="3" fill="none" marker-end="url(#arrow)"/><path d="M435 688H535" stroke="#55749e" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <path d="M1065 479H965" stroke="#55749e" stroke-width="3" fill="none" marker-end="url(#arrow)"/><path d="M1065 589H965" stroke="#55749e" stroke-width="3" fill="none" marker-end="url(#arrow)"/><path d="M1065 688H965" stroke="#55749e" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <rect class="box pill" x="555" y="568" width="390" height="115" fill="url(#orange)"/><text class="t main" x="750" y="613" text-anchor="middle">统一结构化输出</text><text class="t sub" x="750" y="649" text-anchor="middle">Yes / No · 证据说明 · bounding_boxes</text>
+  <path class="line" d="M750 527V558"/>
+
+  <path class="line" d="M750 738V790"/>
+  <text class="t stage" x="52" y="796">03  系统级业务复核</text>
+  <rect class="dash" x="38" y="814" width="1424" height="156" rx="30"/>
+  <rect class="box pill" x="72" y="850" width="300" height="78" fill="url(#green)"/><text class="t task" x="222" y="882" text-anchor="middle">连续帧 / 历史持续性</text><text class="t sub" x="222" y="912" text-anchor="middle">排除瞬时经过</text>
+  <rect class="box pill" x="408" y="850" width="300" height="78" fill="url(#green)"/><text class="t task" x="558" y="882" text-anchor="middle">许可数据库校验</text><text class="t sub" x="558" y="912" text-anchor="middle">排除已审批事项</text>
+  <rect class="box pill" x="744" y="850" width="300" height="78" fill="url(#green)"/><text class="t task" x="894" y="882" text-anchor="middle">同地点时间窗去重</text><text class="t sub" x="894" y="912" text-anchor="middle">抑制重复线索</text>
+  <rect class="box pill" x="1080" y="850" width="300" height="78" fill="url(#green)"/><text class="t task" x="1230" y="882" text-anchor="middle">格式与目标框校验</text><text class="t sub" x="1230" y="912" text-anchor="middle">保证结果可解析</text>
+
+  <path class="line" d="M750 970V1012"/>
+  <text class="t stage" x="52" y="1014">04  证据固化与业务流转</text>
+  <rect class="box pill" x="60" y="1040" width="315" height="92" fill="url(#blue)"/><text class="t task" x="218" y="1075" text-anchor="middle">证据生成</text><text class="t sub" x="218" y="1107" text-anchor="middle">原图 · 标框图 · 时空信息</text>
+  <path class="line" d="M375 1086H455"/>
+  <rect class="box pill" x="475" y="1040" width="315" height="92" fill="url(#blue)"/><text class="t task" x="633" y="1075" text-anchor="middle">SQLite / CSV 暂存</text><text class="t sub" x="633" y="1107" text-anchor="middle">可追踪 · 可补交</text>
+  <path class="line" d="M790 1086H870"/>
+  <rect class="box pill" x="890" y="1040" width="250" height="92" fill="url(#blue)"/><text class="t task" x="1015" y="1075" text-anchor="middle">人工复核</text><text class="t sub" x="1015" y="1107" text-anchor="middle">线索确认</text>
+  <path class="line" d="M1140 1086H1200"/>
+  <rect class="box pill" x="1220" y="1040" width="220" height="92" fill="url(#blue)"/><text class="t task" x="1330" y="1075" text-anchor="middle">业务数据库</text><text class="t sub" x="1330" y="1107" text-anchor="middle">状态回写 /feedback</text>
+</svg>

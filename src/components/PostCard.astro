@@ -1,0 +1,18 @@
+---
+import { Image } from 'astro:assets';
+import type { Post } from '../utils/posts';
+import { formatDate, postHref } from '../utils/posts';
+interface Props { post: Post; index?: number; large?: boolean; }
+const { post, index = 1, large = false } = Astro.props;
+---
+<article class:list={['card group flex flex-col', large && 'md:grid md:grid-cols-[1.1fr_.9fr]']}>
+  <a href={postHref(post)} class="block overflow-hidden bg-[var(--panel)] aspect-[16/9]">
+    {post.data.cover ? <Image src={post.data.cover} alt="" widths={[500, 900]} sizes="(max-width: 768px) 100vw, 50vw" class="w-full h-full object-cover transition duration-500 group-hover:scale-[1.025]" /> : <div class="h-full grid place-items-center text-7xl font-black text-[var(--line)]">{String(index).padStart(2, '0')}</div>}
+  </a>
+  <div class="p-5 md:p-7 flex flex-col grow">
+    <div class="flex flex-wrap items-center gap-2 mb-6"><span class="pill signal">{post.data.category}</span>{post.data.series && <span class="pill">{post.data.series}</span>}</div>
+    <h3 class:list={['font-bold leading-tight tracking-[-.035em]', large ? 'text-3xl md:text-4xl' : 'text-2xl']}><a href={postHref(post)}>{post.data.title}</a></h3>
+    <p class="text-[var(--muted)] mt-3 grow">{post.data.description}</p>
+    <div class="mt-7 pt-4 border-t border-[var(--line)] flex justify-between text-xs font-mono text-[var(--muted)]"><time>{formatDate(post.data.publishedAt)}</time><span>{post.data.readingTime ?? '6 MIN'}</span></div>
+  </div>
+</article>

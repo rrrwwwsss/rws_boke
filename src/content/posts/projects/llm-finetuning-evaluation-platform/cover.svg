@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#f2f0e8"/>
+  <path d="M0 0h1600v62H0zM0 838h1600v62H0z" fill="#101828"/>
+  <path d="M1050 0h550v900h-550z" fill="#155eef"/>
+  <g fill="none" stroke="#fff" stroke-width="3">
+    <rect x="1125" y="180" width="300" height="120"/>
+    <rect x="1125" y="390" width="300" height="120"/>
+    <rect x="1125" y="600" width="300" height="120"/>
+    <path d="M1275 300v90M1275 510v90"/>
+  </g>
+  <g fill="#fff" font-family="Microsoft YaHei, sans-serif" text-anchor="middle">
+    <text x="1275" y="235" font-size="30" font-weight="700">DATASET</text>
+    <text x="1275" y="275" font-size="22">困难样本回流</text>
+    <text x="1275" y="445" font-size="30" font-weight="700">FINE-TUNE</text>
+    <text x="1275" y="485" font-size="22">SFT · DPO · LoRA</text>
+    <text x="1275" y="655" font-size="30" font-weight="700">EVALUATE</text>
+    <text x="1275" y="695" font-size="22">可比较的模型版本</text>
+  </g>
+  <g font-family="Microsoft YaHei, sans-serif" fill="#101828">
+    <text x="110" y="170" font-size="24" font-weight="700" letter-spacing="4">PROJECT / MODEL ENGINEERING</text>
+    <text x="110" y="300" font-size="78" font-weight="800">大模型微调与</text>
+    <text x="110" y="405" font-size="78" font-weight="800">自动评测平台</text>
+    <text x="110" y="515" font-size="31">从困难样本回流，到模型训练、服务与评测闭环</text>
+    <text x="110" y="680" font-size="25" font-weight="700">VUE 3 · FASTAPI · LLAMA-FACTORY · WEBSOCKET</text>
+  </g>
+  <circle cx="115" cy="770" r="15" fill="#ff6b35" stroke="#101828" stroke-width="3"/>
+  <text x="150" y="780" font-family="monospace" font-size="24" fill="#101828">RWS.LOG / FIELD NOTE</text>
+</svg>

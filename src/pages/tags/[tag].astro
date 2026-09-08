@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import { visiblePosts } from '../../utils/posts';
+const all = visiblePosts(await getCollection('posts'));
+export async function getStaticPaths() {
+  const posts = visiblePosts(await getCollection('posts'));
+  const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
+  return tags.map((tag) => ({ params: { tag }, props: { tag } }));
+}
+const { tag } = Astro.props;
+const posts = all.filter((post) => post.data.tags.includes(tag));
+---
+<BaseLayout title={`#${tag}`}><header class="container pt-20 pb-12"><p class="eyebrow">TAG / {posts.length} POSTS</p><h1 class="section-title mt-4">#{tag}</h1></header><section class="container grid md:grid-cols-2 lg:grid-cols-3 gap-5 pb-24">{posts.map((post, i) => <PostCard post={post} index={i + 1} />)}</section></BaseLayout>

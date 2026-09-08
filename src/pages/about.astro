@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../config';
+---
+<BaseLayout title="关于" description="关于任文硕与这个技术博客。">
+  <section class="container py-20 md:py-28">
+    <p class="eyebrow">ABOUT / RWS</p><h1 class="display mt-6">HELLO,<br/>我是任文硕。</h1>
+    <div class="mt-14 grid md:grid-cols-[.7fr_1.3fr] gap-10 border-t border-[var(--line)] pt-10">
+      <div><div class="aspect-square max-w-xs bg-[var(--ink)] text-[var(--paper)] grid place-items-center border border-[var(--line)]"><span class="text-8xl font-black tracking-[-.09em]">RWS</span></div></div>
+      <div class="max-w-2xl text-lg space-y-5"><p>地理信息工程硕士，AI 应用开发方向。关注多模态大模型、Agent 工作流、模型微调部署，以及 GIS 与交通业务的交叉应用。</p><p>这个博客用于整理可复现的技术教程、完整项目实战和真实工程复盘。我希望每篇文章至少解决一个具体问题，而不是重复技术名词。</p><div class="pt-5 flex flex-wrap gap-3"><a class="signal border border-black px-5 py-2.5 font-bold" href={SITE.github}>GitHub ↗</a><button type="button" class="border border-[var(--line)] px-5 py-2.5 font-bold cursor-pointer" data-copy-email={SITE.email} data-default-label="联系我">联系我</button></div></div>
+    </div>
+  </section>
+  <section class="container pb-24"><p class="eyebrow mb-5">FOCUS</p><div class="grid sm:grid-cols-2 lg:grid-cols-4 border-l border-t border-[var(--line)]"><div class="p-7 border-r border-b border-[var(--line)]"><h2 class="text-2xl font-bold">AI 应用工程</h2><p class="text-[var(--muted)] mt-3">Agent、RAG、多模态模型与业务系统集成。</p></div><div class="p-7 border-r border-b border-[var(--line)]"><h2 class="text-2xl font-bold">模型工程</h2><p class="text-[var(--muted)] mt-3">微调、评测、量化、推理服务和部署。</p></div><div class="p-7 border-r border-b border-[var(--line)]"><h2 class="text-2xl font-bold">GIS × 交通</h2><p class="text-[var(--muted)] mt-3">空间数据、地图系统与交通智能应用。</p></div><div class="p-7 border-r border-b border-[var(--line)]"><h2 class="text-2xl font-bold">大数据</h2><p class="text-[var(--muted)] mt-3">数据处理、分布式计算与分析工作流。</p></div></div></section>
+</BaseLayout>

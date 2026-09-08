@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import { CATEGORIES } from '../../config';
+import { visiblePosts } from '../../utils/posts';
+
+export function getStaticPaths() { return CATEGORIES.map((category) => ({ params: { category: category.slug }, props: { category } })); }
+const { category } = Astro.props;
+const posts = visiblePosts(await getCollection('posts')).filter((post) => post.data.category === category.name);
+---
+<BaseLayout title={category.name} description={category.description}>
+  <header class="container pt-20 pb-12 grid md:grid-cols-[auto_1fr] gap-8 items-end"><span class="text-[8rem] leading-none font-black text-[var(--line)]">{category.code}</span><div><p class="eyebrow">CATEGORY</p><h1 class="section-title mt-3">{category.name}</h1><p class="text-xl text-[var(--muted)] mt-5 max-w-2xl">{category.description}</p></div></header>
+  <section class="container grid md:grid-cols-2 lg:grid-cols-3 gap-5 pb-24">{posts.length ? posts.map((post, i) => <PostCard post={post} index={i + 1} />) : <div class="card p-8 col-span-full"><p class="text-xl font-bold">文章正在整理中。</p><p class="text-[var(--muted)] mt-2">这个栏目已经准备好，你可以通过 Markdown 添加第一篇内容。</p></div>}</section>
+</BaseLayout>

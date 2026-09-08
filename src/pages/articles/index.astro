@@ -1,0 +1,11 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import { visiblePosts } from '../../utils/posts';
+const posts = visiblePosts(await getCollection('posts'));
+---
+<BaseLayout title="全部文章" description="技术教程、项目实战、原理解析与工程复盘。">
+  <header class="container pt-20 pb-12"><p class="eyebrow">ARCHIVE / {posts.length} POSTS</p><h1 class="section-title mt-4">全部文章</h1><p class="mt-6 text-xl text-[var(--muted)] max-w-2xl">按发布时间浏览所有公开内容。草稿不会出现在这里。</p></header>
+  <section class="container grid md:grid-cols-2 lg:grid-cols-3 gap-5 pb-24">{posts.map((post, i) => <PostCard post={post} index={i + 1} />)}</section>
+</BaseLayout>

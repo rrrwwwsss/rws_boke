@@ -1,0 +1,26 @@
+{
+  "name": "renshuo-tech-blog",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && pagefind --site dist",
+    "build:deploy": "astro build --mode deployment && pagefind --site dist",
+    "preview": "astro preview",
+    "check": "astro check",
+    "new": "node scripts/new-post.mjs"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^8.0.0",
+    "@astrojs/sitemap": "^3.7.4",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.2.10",
+    "pagefind": "^1.5.2",
+    "sharp": "^0.35.4",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.6",
+    "typescript": "^5.9.2"
+  }
+}
