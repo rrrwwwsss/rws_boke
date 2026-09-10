@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1650 540" role="img" aria-labelledby="title desc">
+  <title id="title">LoRA 的不足</title><desc id="desc">能力天花板受限、Rank 超参数调优黑洞、极限参数下的基础显存墙</desc>
+  <defs><filter id="s"><feDropShadow dx="0" dy="7" stdDeviation="10" flood-color="#243b53" flood-opacity=".11"/></filter><style>.t{font-family:"Microsoft YaHei","Noto Sans SC",sans-serif;fill:#243b53}.h{font-size:34px;font-weight:800}.p{font-size:24px;fill:#52667a}.icon{font-size:48px;font-weight:800;fill:#627d98}</style></defs>
+  <rect width="1650" height="540" fill="#f6f8fb"/><g filter="url(#s)"><rect x="35" y="35" width="500" height="470" rx="24" fill="#fff"/><rect x="575" y="35" width="500" height="470" rx="24" fill="#fff"/><rect x="1115" y="35" width="500" height="470" rx="24" fill="#fff"/></g>
+  <text class="t icon" x="75" y="120">↘</text><text class="t h" x="75" y="185">能力天花板受限</text><text class="t p" x="75" y="245"><tspan x="75">LoRA 本质是在低维空间寻找解，它擅长</tspan><tspan x="75" dy="42">“激发”原有能力，但面对极复杂的逻辑推</tspan><tspan x="75" dy="42">理或试图强行“注入”海量新知识时，往往</tspan><tspan x="75" dy="42">打不过全量微调。</tspan></text>
+  <text class="t icon" x="615" y="120">☷</text><text class="t h" x="615" y="185">Rank(r) 超参数调优黑洞</text><text class="t p" x="615" y="245"><tspan x="615">深层与浅层网络对参数变化敏感度截然不</tspan><tspan x="615" dy="42">同。全局一刀切设置统一的 r 值，会导致</tspan><tspan x="615" dy="42">部分层算力浪费，部分层表达不足。人工调</tspan><tspan x="615" dy="42">优成本极高。</tspan></text>
+  <text class="t icon" x="1155" y="120">▣</text><text class="t h" x="1155" y="185">极限参数下的基础显存墙</text><text class="t p" x="1155" y="245"><tspan x="1155">即使您去了优化器显存，对于极其庞大的千</tspan><tspan x="1155" dy="42">亿级模型，仅仅是将基础权重加载进显</tspan><tspan x="1155" dy="42">存，并保存前向激活，依然能瞬间撑爆单</tspan><tspan x="1155" dy="42">张旗舰级显卡。</tspan></text>
+</svg>
