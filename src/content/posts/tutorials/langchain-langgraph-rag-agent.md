@@ -10,7 +10,6 @@ featured: false
 readingTime: 9 MIN
 ---
 
-## 先看一句话版本
 
 - LangChain 提供调用模型、Prompt、工具和检索器等组件。
 - RAG 是先检索外部资料，再让模型根据资料回答的方法。
